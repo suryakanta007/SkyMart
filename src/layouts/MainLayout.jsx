@@ -2,6 +2,7 @@ import React from 'react'
 import { Outlet, NavLink } from 'react-router'
 import { Zap, ShoppingCart, LogOut } from 'lucide-react'
 import Navbar from '../components/Navbar'
+import { ProductProvider } from '../context/ProductContext'
 
 const MainLayout = () => {
     return (
@@ -11,7 +12,9 @@ const MainLayout = () => {
 
             {/* Main Content */}
             <main className="max-w-7xl mx-auto px-6 py-8">
-                <Outlet />
+                <ProductProvider>
+                    <Outlet />
+                </ProductProvider>
             </main>
         </div>
     )
