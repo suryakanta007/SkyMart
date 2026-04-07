@@ -7,17 +7,17 @@ import Feature from '../components/Feature'
 const Home = () => {
     return (
         <div className="space-y-12 pb-20">
-            {/* Hero Section */}
+
             <Hero />
 
-            {/* Metrics Row */}
+
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
                 {featueredData.map((stat, i) => (
                     <Feature key={i} stat={stat} />
                 ))}
             </div>
 
-            {/* Shop by Category */}
+
             <section className="space-y-8">
                 <div className="flex items-center justify-between">
                     <h2 className="text-2xl font-bold tracking-tight px-2">Shop by Category</h2>

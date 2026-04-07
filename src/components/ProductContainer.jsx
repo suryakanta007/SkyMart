@@ -4,6 +4,7 @@ import ProductCard from './ProductCard';
 import { ProductContext } from '../context/ProductContext';
 import { getAllProducts, getProductsByCategory, getProductsBySearch, getProductsCategoriesList } from '../api/productApi';
 import { debounce } from '../utiles/debounce';
+import { Skeliton } from './Skeliton';
 
 const ProductContainer = () => {
 
@@ -11,6 +12,7 @@ const ProductContainer = () => {
     const [isSortOpen, setIsSortOpen] = useState(false);
     const [selectedCategory, setSelectedCategory] = useState('All Categories');
     const [selectedSort, setSelectedSort] = useState('Featured');
+    const [loading, setLoading] = useState(false);
 
     const [searchQuery, setSearchQuery] = useState('');
 
@@ -34,15 +36,18 @@ const ProductContainer = () => {
 
     useEffect(() => {
         try {
+            setLoading(true);
             const getData = async () => {
                 console.log("Fetching products...");
                 if (selectedCategory !== "All Categories") {
                     const data = await getProductsByCategory(selectedCategory);
                     setProducts(data);
+                    setLoading(false);
                     return;
                 }
                 const data = await getAllProducts();
                 setProducts(data);
+                setLoading(false);
 
             }
             getData();
@@ -62,7 +67,7 @@ const ProductContainer = () => {
     }, [selectedCategory]);
 
 
-    // Close dropdowns on click outside
+
     useEffect(() => {
         const handleClickOutside = (event) => {
 
@@ -98,7 +103,7 @@ const ProductContainer = () => {
                 </div>
 
                 <div className="flex gap-4 w-full md:w-auto">
-                    {/* Category Dropdown */}
+
                     <div className="relative flex-1 md:flex-none" ref={categoryRef}>
                         <button
                             onClick={() => {
@@ -129,7 +134,7 @@ const ProductContainer = () => {
                         )}
                     </div>
 
-                    {/* Sort Dropdown */}
+
                     <div className="relative flex-1 md:flex-none" ref={sortRef}>
                         <button
                             onClick={() => {
@@ -162,12 +167,16 @@ const ProductContainer = () => {
                 </div>
             </div>
 
-            {/* Product Grid */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6">
-                {products.map((product) => {
-                    return (<ProductCard key={product.id} product={product} />)
-                })}
-            </div>
+
+            {loading ? (
+                <Skeliton />
+            ) : (
+                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6">
+                    {products.map((product) => (
+                        <ProductCard key={product.id} product={product} />
+                    ))}
+                </div>
+            )}
         </>
     )
 }

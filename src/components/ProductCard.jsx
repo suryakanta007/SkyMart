@@ -1,10 +1,12 @@
 import { ShoppingCart, Star } from 'lucide-react'
 import React from 'react'
+import { useNavigate } from 'react-router'
 
 const ProductCard = ({ product }) => {
+    const navigate = useNavigate();
     return (<div key={product.id} className="bg-white rounded-[2rem] overflow-hidden group hover:-translate-y-2 transition-all duration-300 hover:shadow-[0_20px_40px_rgba(212,255,0,0.1)] flex flex-col shadow-[5px_5px_rgba(0,_98,_90,_0.4),_10px_10px_rgba(0,_98,_90,_0.3),_15px_15px_rgba(0,_98,_90,_0.2),_20px_20px_rgba(0,_98,_90,_0.1),_25px_25px_rgba(0,_98,_90,_0.05)]">
 
-        <div className="relative aspect-square overflow-hidden bg-gray-100 p-4">
+        <div className="relative aspect-square overflow-hidden bg-gray-100 p-4" onClick={() => navigate(`/products/${product.id}`)}>
             <span className="absolute top-4 left-4 z-10 bg-[#121212] text-white text-[10px] font-bold px-3 py-1.5 rounded-full uppercase tracking-wider">
                 {product.category}
             </span>
@@ -30,7 +32,7 @@ const ProductCard = ({ product }) => {
                             />
                         ))}
                     </div>
-                    <span className="text-gray-400 text-xs font-medium">({product.reviews.rating})</span>
+                    <span className="text-gray-400 text-xs font-medium">({product.reviews?.length || 0})</span>
                 </div>
             </div>
 

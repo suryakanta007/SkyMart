@@ -11,6 +11,7 @@ import MainProtect from "../components/MainProtect";
 import Home from "../screens/Home";
 import About from "../screens/About";
 import Shop from "../screens/Shop";
+import ProductDetails from "../screens/ProductDetails";
 
 const AppRoutes = () => {
 
@@ -48,6 +49,10 @@ const AppRoutes = () => {
                         {
                             path: "products",
                             element: <Shop />
+                        },
+                        {
+                            path: "products/:id",
+                            element: <ProductDetails />
                         },
                         {
                             path: "about",
