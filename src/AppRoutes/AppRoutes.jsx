@@ -8,6 +8,9 @@ import MainLayout from "../layouts/MainLayout";
 import App from "../App";
 import AuthProtect from "../components/AuthProtect";
 import MainProtect from "../components/MainProtect";
+import Home from "../screens/Home";
+import About from "../screens/About";
+import Shop from "../screens/Shop";
 
 const AppRoutes = () => {
 
@@ -40,7 +43,15 @@ const AppRoutes = () => {
                     children: [
                         {
                             path: "",
-                            element: <App />
+                            element: <Home />
+                        },
+                        {
+                            path: "products",
+                            element: <Shop />
+                        },
+                        {
+                            path: "about",
+                            element: <About />
                         }
                     ]
                 }
