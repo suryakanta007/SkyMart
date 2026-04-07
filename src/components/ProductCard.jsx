@@ -9,8 +9,8 @@ const ProductCard = ({ product }) => {
                 {product.category}
             </span>
             <img
-                src={product.image}
-                alt={product.name}
+                src={product.images[0]}
+                alt={product.title}
                 className="w-full h-full object-cover rounded-2xl transform group-hover:scale-110 transition-transform duration-500"
             />
         </div>
@@ -19,7 +19,7 @@ const ProductCard = ({ product }) => {
         <div className="bg-black p-6 flex flex-col flex-1 gap-4">
             <div className="space-y-2 flex-1">
                 <p className="text-gray-400 text-[10px] font-bold uppercase tracking-widest">{product.category}</p>
-                <h3 className="text-[#fff] font-bold text-lg leading-tight line-clamp-2">{product.name}</h3>
+                <h3 className="text-[#fff] font-bold text-lg leading-tight line-clamp-2">{product.title}</h3>
 
                 <div className="flex items-center gap-1.5">
                     <div className="flex">
@@ -30,12 +30,12 @@ const ProductCard = ({ product }) => {
                             />
                         ))}
                     </div>
-                    <span className="text-gray-400 text-xs font-medium">({product.reviews})</span>
+                    <span className="text-gray-400 text-xs font-medium">({product.reviews.rating})</span>
                 </div>
             </div>
 
             <div className="flex items-center justify-between pt-2">
-                <span className="text-[#121212] text-xl font-black">${product.price}</span>
+                <span className="text-[#fff] text-xl font-black">${product.price}</span>
                 <button className="bg-brand hover:bg-brand/90 text-black px-4 py-2 rounded-xl flex items-center gap-2 group/btn transition-all active:scale-95 shadow-lg shadow-brand/20">
                     <ShoppingCart className="w-4 h-4" />
                     <span className="text-xs font-bold">Add</span>
