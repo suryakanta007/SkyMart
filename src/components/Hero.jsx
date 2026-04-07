@@ -1,7 +1,10 @@
 import { ArrowRight } from 'lucide-react'
-import React from 'react'
+import React, { useContext } from 'react'
+import { AuthContext } from '../context/AuthContext'
 
 const Hero = () => {
+
+    const { loginUser } = useContext(AuthContext);
     return (
         <section className="relative overflow-hidden bg-[#0c0c0c] border border-white/5 rounded-[2.5rem] p-8 md:p-12 lg:p-16">
 
@@ -17,7 +20,7 @@ const Hero = () => {
                         </p>
                         <h1 className="text-5xl md:text-7xl font-bold leading-tight tracking-tight">
                             Welcome back, <br />
-                            <span className="text-brand">Suryakanta!</span>
+                            <span className="text-brand">{loginUser.name.split(" ")[0]}!</span>
                         </h1>
                         <p className="text-gray-400 text-lg md:text-xl leading-relaxed max-w-xl">
                             Discover today's picks — hand-curated products across electronics, fashion, and more.
