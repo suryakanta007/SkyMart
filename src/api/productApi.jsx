@@ -35,10 +35,13 @@ export const getProductsByCategory = async (category) => {
 
 export const getProductsBySearch = async (search) => {
     try {
+
+
         const response = await axiosInstance.get(`/products/search?q=${search.replace(" ", "%20")}`);
         return response.data.products;
     } catch (error) {
-        toast.error("Error fetching products by search");
+        console.log(`/products/search?q=${search.replace(" ", "%20")}`)
+        toast.error("Error fetching products by search okok");
         console.log("Error fetching products by search", error);
     }
 }
