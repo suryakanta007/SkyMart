@@ -17,8 +17,8 @@ const AuthLayout = () => {
     }
 
     return (
-        <div className="flex min-h-screen bg-dark-bg text-white font-sans">
-            <div className="hidden lg:flex flex-col flex-1 p-12 justify-between bg-[radial-gradient(circle_at_20%_30%,_#1a1a1a_0%,_#0a0a0a_100%)]">
+        <div className="flex  min-h-screen bg-dark-bg text-white font-sans">
+            <div className="hidden  lg:flex flex-col flex-1 p-12 justify-between bg-[radial-gradient(circle_at_20%_30%,_#1a1a1a_0%,_#0a0a0a_100%)]">
                 <div>
                     <div className="flex items-center gap-2 mb-20">
                         <div className="bg-brand p-2 rounded-full">

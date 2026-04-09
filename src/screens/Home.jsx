@@ -3,6 +3,7 @@ import { ArrowRight, ShoppingCart, TrendingUp, Star, LayoutGrid, Zap, Laptop, Sh
 import Hero from '../components/Hero'
 import { featueredData } from '../Data/data'
 import Feature from '../components/Feature'
+import CategoryCard from '../components/CategoryCard'
 
 const Home = () => {
     return (
@@ -28,20 +29,13 @@ const Home = () => {
 
                 <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
                     {[
-                        { name: 'Electronics', count: 17, icon: Laptop },
-                        { name: 'Clothing', count: 2, icon: Shirt },
-                        { name: 'Furniture', count: 3, icon: Sofa },
-                        { name: 'Home', count: 14, icon: HomeIcon },
-                        { name: 'Sports', count: 8, icon: Trophy },
-                        { name: 'Accessories', count: 6, icon: Watch }
+                        { name: 'beauty', count: 17, icon: Laptop },
+                        { name: 'furniture', count: 2, icon: Shirt },
+                        { name: 'tops', count: 3, icon: Sofa },
+                        { name: 'groceries', count: 14, icon: HomeIcon },
+                        { name: 'motorcycle', count: 8, icon: Trophy },
                     ].map((cat, i) => (
-                        <div key={i} className="bg-white group cursor-pointer rounded-[2rem] p-8 flex flex-col items-center justify-center text-center transition-all hover:-translate-y-2 hover:shadow-[0_20px_40px_rgba(212,255,0,0.1)]">
-                            <div className="mb-6 transform transition-transform group-hover:scale-110 duration-300">
-                                <cat.icon className="w-12 h-12 text-black opacity-80" />
-                            </div>
-                            <h3 className="text-black font-bold text-lg mb-1">{cat.name}</h3>
-                            <p className="text-gray-400 text-sm font-medium">{cat.count} items</p>
-                        </div>
+                        <CategoryCard key={i} cat={cat} />
                     ))}
                 </div>
             </section>

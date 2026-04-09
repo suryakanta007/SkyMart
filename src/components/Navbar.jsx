@@ -1,6 +1,6 @@
 import { LogOut, ShoppingCart, Zap } from 'lucide-react'
 import React, { useContext } from 'react'
-import { NavLink } from 'react-router'
+import { NavLink, useNavigate } from 'react-router'
 import { useCart } from '../context/CartContext'
 import { AuthContext } from '../context/AuthContext';
 
@@ -8,7 +8,7 @@ const Navbar = () => {
 
     const { toggleCart, cartCount } = useCart();
     const { setLoginUser, loginUser } = useContext(AuthContext);
-
+    const navigate = useNavigate();
     const handleLogOut = () => {
         setLoginUser(null);
         localStorage.removeItem("loginUser");

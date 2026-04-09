@@ -10,7 +10,7 @@ const ProductContainer = () => {
 
     const [isCategoryOpen, setIsCategoryOpen] = useState(false);
     const [isSortOpen, setIsSortOpen] = useState(false);
-    const [selectedCategory, setSelectedCategory] = useState('All Categories');
+    
     const [selectedSort, setSelectedSort] = useState('Featured');
     const [loading, setLoading] = useState(false);
 
@@ -19,7 +19,7 @@ const ProductContainer = () => {
     const categoryRef = useRef(null);
     const sortRef = useRef(null);
 
-    const { products, setProducts, categories, setCategories } = useContext(ProductContext);
+    const { products, setProducts, categories, setCategories,selectedCategory, setSelectedCategory } = useContext(ProductContext);
 
     const sortOptions = ['Featured', 'Price: Low to High', 'Price: High to Low', 'Rating: High to Low'];
 
@@ -57,7 +57,7 @@ const ProductContainer = () => {
                 setCategories(["All Categories", ...data]);
             }
             getCategories();
-
+            
 
 
 
